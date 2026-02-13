@@ -2,14 +2,14 @@
 export const about = {
   TH: {
     hero: {
-      badge: "Phuket Gevalin Tour",
+      badge: "Ktvacationmemories Tour",
       title: "เกี่ยวกับเรา",
       subtitle: "ผู้ให้บริการด้านการท่องเที่ยวครบวงจร",
       description: "พร้อมมอบประสบการณ์ที่น่าประทับใจในทุกการเดินทาง",
     },
     company: {
       badge: "เรื่องราวของเรา",
-      title: "Phuket Gevalin",
+      title: "Ktvacationmemories",
       description1:
         "เราเป็นบริษัทที่ให้บริการด้านการท่องเที่ยวครบวงจร ตั้งอยู่ใจกลางเมืองภูเก็ต พร้อมมอบบริการทัวร์ รถรับ-ส่ง และที่พักโรงแรมคุณภาพ",
       description2:
@@ -90,14 +90,14 @@ export const about = {
   },
   EN: {
     hero: {
-      badge: "Phuket Gevalin Tour",
+      badge: "Ktvacationmemories Tour",
       title: "About Us",
       subtitle: "Your Complete Travel Service Provider in Phuket",
       description: "Delivering memorable experiences for every journey",
     },
     company: {
       badge: "Our Story",
-      title: "Phuket Gevalin",
+      title: "Ktvacationmemories",
       description1:
         "We are a full-service travel company located in the heart of Phuket, offering tours, transfers, and quality hotel accommodations.",
       description2:

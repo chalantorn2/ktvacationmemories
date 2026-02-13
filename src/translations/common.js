@@ -28,8 +28,9 @@ export const common = {
     cta: {
       title: "พร้อมเริ่มต้นการเดินทางแล้วหรือยัง?",
       description: "ติดต่อเราเพื่อขอคำแนะนำและวางแผนการเดินทางที่เหมาะสมกับคุณ",
-      call: "โทร: 099-257-0639",
-      line: "แอดไลน์: @phuketgevalin",
+      call: "โทร: 089-469-4816",
+      line: "แอดไลน์: ree22516",
+      whatsapp: "WhatsApp: +66894694816",
     },
   },
   EN: {
@@ -61,8 +62,9 @@ export const common = {
       title: "Ready to Start Your Journey?",
       description:
         "Contact us for recommendations and plan the perfect trip for you",
-      call: "Call: 012-345-6789",
-      line: "LINE: @phuketgevalin",
+      call: "Call: 089-469-4816",
+      line: "LINE: ree22516",
+      whatsapp: "WhatsApp: +66894694816",
     },
   },
 };

@@ -312,23 +312,6 @@ function PackageTourForm({ tour, onClose, onSave }) {
     { value: 'krabi', label: 'Krabi / กระบี่' },
     { value: 'phangnga', label: 'Phang Nga / พังงา' },
     { value: 'suratthani', label: 'Surat Thani / สุราษฎร์ธานี' },
-    { value: 'chiangmai', label: 'Chiang Mai / เชียงใหม่' },
-    { value: 'chiangrai', label: 'Chiang Rai / เชียงราย' },
-    { value: 'bangkok', label: 'Bangkok / กรุงเทพฯ' },
-    { value: 'chonburi', label: 'Chonburi / ชลบุรี' },
-    { value: 'kanchanaburi', label: 'Kanchanaburi / กาญจนบุรี' },
-    { value: 'nakhonratchasima', label: 'Nakhon Ratchasima / นครราชสีมา' },
-    { value: 'songkhla', label: 'Songkhla / สงขลา' },
-    { value: 'loei', label: 'Loei / เลย' },
-    { value: 'nan', label: 'Nan / น่าน' },
-    { value: 'mae_hong_son', label: 'Mae Hong Son / แม่ฮ่องสอน' },
-    { value: 'tak', label: 'Tak / ตาก' },
-    { value: 'ranong', label: 'Ranong / ระนอง' },
-    { value: 'trang', label: 'Trang / ตรัง' },
-    { value: 'satun', label: 'Satun / สตูล' },
-    { value: 'prachuap', label: 'Prachuap Khiri Khan / ประจวบคีรีขันธ์' },
-    { value: 'rayong', label: 'Rayong / ระยอง' },
-    { value: 'trat', label: 'Trat / ตราด' },
   ];
 
   // Upload multiple images

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Hotels API - Phuket Gevalin
  */
@@ -22,10 +23,6 @@ try {
                 $hotel = $db->fetchOne($sql, [(int)$id]);
 
                 if ($hotel) {
-                    // Parse gallery JSON
-                    if (isset($hotel['gallery']) && is_string($hotel['gallery'])) {
-                        $hotel['gallery'] = json_decode($hotel['gallery'], true) ?: [];
-                    }
                     successResponse($hotel);
                 } else {
                     errorResponse('Hotel not found', 404);
@@ -52,18 +49,11 @@ try {
                     $sql .= " WHERE " . implode(" AND ", $conditions);
                 }
 
-                $sql .= " ORDER BY stars DESC, rating DESC, created_at DESC LIMIT ? OFFSET ?";
+                $sql .= " ORDER BY rating DESC, created_at DESC LIMIT ? OFFSET ?";
                 $params[] = $limit;
                 $params[] = $offset;
 
                 $hotels = $db->fetchAll($sql, $params);
-
-                // Parse gallery JSON for each hotel
-                foreach ($hotels as &$hotel) {
-                    if (isset($hotel['gallery']) && is_string($hotel['gallery'])) {
-                        $hotel['gallery'] = json_decode($hotel['gallery'], true) ?: [];
-                    }
-                }
 
                 successResponse($hotels);
             }
@@ -79,15 +69,9 @@ try {
                 }
             }
 
-            // Prepare gallery JSON
-            $gallery = null;
-            if (isset($data['gallery']) && is_array($data['gallery'])) {
-                $gallery = json_encode($data['gallery'], JSON_UNESCAPED_UNICODE);
-            }
-
             $id = $db->insert(
-                "INSERT INTO hotels (name_th, name_en, description_th, description_en, location, address, price_per_night, rating, stars, reviews, image, gallery, amenities, status, created_at)
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', NOW())",
+                "INSERT INTO hotels (name_th, name_en, description_th, description_en, location, address, price_per_night, rating, image, amenities, status, created_at)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', NOW())",
                 [
                     sanitize($data['name_th']),
                     sanitize($data['name_en']),
@@ -97,10 +81,7 @@ try {
                     sanitize($data['address'] ?? ''),
                     (float)$data['price_per_night'],
                     (float)($data['rating'] ?? 4.0),
-                    (int)($data['stars'] ?? 4),
-                    (int)($data['reviews'] ?? 0),
                     sanitize($data['image'] ?? ''),
-                    $gallery,
                     sanitize($data['amenities'] ?? '')
                 ]
             );
@@ -121,25 +102,27 @@ try {
             $params = [];
 
             $allowedFields = [
-                'name_th', 'name_en', 'description_th', 'description_en',
-                'location', 'address', 'price_per_night', 'rating', 'stars', 'reviews',
-                'image', 'gallery', 'amenities', 'status'
+                'name_th',
+                'name_en',
+                'description_th',
+                'description_en',
+                'location',
+                'address',
+                'price_per_night',
+                'rating',
+                'image',
+                'amenities',
+                'status'
             ];
 
-            $numericFields = ['price_per_night', 'rating', 'stars', 'reviews'];
+            $numericFields = ['price_per_night', 'rating'];
 
             foreach ($allowedFields as $field) {
                 if (isset($data[$field])) {
                     $fields[] = "$field = ?";
 
-                    if ($field === 'gallery' && is_array($data[$field])) {
-                        $params[] = json_encode($data[$field], JSON_UNESCAPED_UNICODE);
-                    } elseif (in_array($field, $numericFields)) {
-                        if (in_array($field, ['price_per_night', 'rating'])) {
-                            $params[] = (float)$data[$field];
-                        } else {
-                            $params[] = (int)$data[$field];
-                        }
+                    if (in_array($field, $numericFields)) {
+                        $params[] = (float)$data[$field];
                     } else {
                         $params[] = sanitize($data[$field]);
                     }
@@ -181,5 +164,5 @@ try {
     }
 } catch (Exception $e) {
     error_log("Hotels API Error: " . $e->getMessage());
-    errorResponse('Server error', 500);
+    errorResponse('Server error: ' . $e->getMessage(), 500);
 }

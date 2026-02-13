@@ -7,33 +7,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary - Cyan light tones
+        // Primary - Navy Blue tones
         primary: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4',
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#164e63',
-          950: '#083344',
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+          950: '#172554',
         },
-        // Accent - Cyan dark tones (same as primary, for consistency)
+        // Accent - Deep Navy tones
         accent: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#0e7490',
-          600: '#155e75',
-          700: '#164e63',
-          800: '#083344',
-          900: '#053342',
-          950: '#022531',
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#1d4ed8',
+          600: '#1e40af',
+          700: '#1e3a8a',
+          800: '#172554',
+          900: '#0f1a3d',
+          950: '#0a1128',
         },
         // Neutral colors
         neutral: {

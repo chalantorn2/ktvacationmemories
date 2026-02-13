@@ -993,7 +993,7 @@ function HotelForm({ hotel, onClose, onSave }) {
 
     try {
       const apiBase = window.location.hostname === 'localhost'
-        ? 'https://www.phuketgevalin.com/api'
+        ? 'https://www.ktvacationmemories.com/api'
         : '/api';
 
       const uploadedUrls = [];

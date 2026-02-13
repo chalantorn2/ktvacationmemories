@@ -48,18 +48,18 @@ export default function Header({ forceSolid = false }) {
   }, []);
 
   const navigation = [
-    { name: t('nav.home'), path: "/" },
+    { name: t("nav.home"), path: "/" },
     {
-      name: t('nav.tourServices'),
+      name: t("nav.tourServices"),
       isDropdown: true,
       items: [
-        { name: t('nav.oneDayTrip'), path: "/one-day-trip" },
-        { name: t('nav.packageTour'), path: "/package-tour" },
+        { name: t("nav.oneDayTrip"), path: "/one-day-trip" },
+        { name: t("nav.packageTour"), path: "/package-tour" },
       ],
     },
-    { name: t('nav.transfer'), path: "/transfer" },
-    { name: t('nav.hotel'), path: "/hotel" },
-    { name: t('nav.about'), path: "/about" },
+    { name: t("nav.transfer"), path: "/transfer" },
+    { name: t("nav.hotel"), path: "/hotel" },
+    { name: t("nav.about"), path: "/about" },
   ];
 
   const handleNavClick = (path) => {
@@ -87,14 +87,18 @@ export default function Header({ forceSolid = false }) {
             >
               <img
                 src="/logo.png"
-                alt="Phuket Gevalin Logo"
+                alt="Ktvacationmemories Logo"
                 className="h-12 w-12 object-contain group-hover:scale-105 transition-transform"
               />
               <div className="flex flex-col">
-                <span className={`text-lg font-bold leading-tight transition-colors duration-300 ${isSolid ? 'text-primary-700 group-hover:text-primary-800' : 'text-white'}`}>
-                  Phuket Gevalin
+                <span
+                  className={`text-lg font-bold leading-tight transition-colors duration-300 ${isSolid ? "text-primary-700 group-hover:text-primary-800" : "text-white"}`}
+                >
+                  Ktvacationmemories
                 </span>
-                <span className={`text-xs text-left leading-tight transition-colors duration-300 ${isSolid ? 'text-primary-500' : 'text-primary-200'}`}>
+                <span
+                  className={`text-xs text-left leading-tight transition-colors duration-300 ${isSolid ? "text-primary-500" : "text-primary-200"}`}
+                >
                   Travel & Tours
                 </span>
               </div>
@@ -111,9 +115,13 @@ export default function Header({ forceSolid = false }) {
                   onMouseEnter={() => setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button className={`transition-all duration-300 font-semibold cursor-pointer flex items-center gap-1.5 py-2 ${
-                    isSolid ? 'text-neutral-700 hover:text-primary-600' : 'text-white/90 hover:text-white'
-                  }`}>
+                  <button
+                    className={`transition-all duration-300 font-semibold cursor-pointer flex items-center gap-1.5 py-2 ${
+                      isSolid
+                        ? "text-neutral-700 hover:text-primary-600"
+                        : "text-white/90 hover:text-white"
+                    }`}
+                  >
                     {item.name}
                     <svg
                       className={`w-4 h-4 transition-transform duration-300 ${
@@ -132,13 +140,19 @@ export default function Header({ forceSolid = false }) {
                     </svg>
                   </button>
                   {/* Dropdown wrapper with padding to create seamless hover area */}
-                  <div className={`absolute top-full left-0 pt-2 min-w-[180px] ${openDropdown === item.name ? 'visible' : 'invisible pointer-events-none'}`}>
-                    <div className={`bg-white backdrop-blur-lg rounded-lg shadow-xl py-2 overflow-hidden transition-all duration-200 ${openDropdown === item.name ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
+                  <div
+                    className={`absolute top-full left-0 pt-2 min-w-[180px] ${openDropdown === item.name ? "visible" : "invisible pointer-events-none"}`}
+                  >
+                    <div
+                      className={`bg-white backdrop-blur-lg rounded-lg shadow-xl py-2 overflow-hidden transition-all duration-200 ${openDropdown === item.name ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
+                    >
                       {item.items.map((subItem) => (
                         <Link
                           key={subItem.name}
                           to={subItem.path}
-                          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                          onClick={() =>
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }
                           className="block w-full text-left px-4 py-3 text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all duration-200 font-medium cursor-pointer"
                         >
                           {subItem.name}
@@ -151,15 +165,21 @@ export default function Header({ forceSolid = false }) {
                 <Link
                   key={item.name}
                   to={item.path}
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className={`transition-all duration-300 font-semibold cursor-pointer relative group py-2 ${
-                    isSolid ? 'text-neutral-700 hover:text-primary-600' : 'text-white/90 hover:text-white'
+                    isSolid
+                      ? "text-neutral-700 hover:text-primary-600"
+                      : "text-white/90 hover:text-white"
                   }`}
                 >
                   {item.name}
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isSolid ? 'bg-primary-600' : 'bg-white'}`}></span>
+                  <span
+                    className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isSolid ? "bg-primary-600" : "bg-white"}`}
+                  ></span>
                 </Link>
-              )
+              ),
             )}
           </nav>
 
@@ -169,8 +189,8 @@ export default function Header({ forceSolid = false }) {
               onClick={toggleLanguage}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full font-medium text-sm transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md ${
                 isSolid
-                  ? 'bg-white hover:bg-neutral-50 border border-neutral-200 hover:border-primary-300 text-neutral-700'
-                  : 'bg-white/10 hover:bg-white/20 border border-white/20 text-white'
+                  ? "bg-white hover:bg-neutral-50 border border-neutral-200 hover:border-primary-300 text-neutral-700"
+                  : "bg-white/10 hover:bg-white/20 border border-white/20 text-white"
               }`}
             >
               <FlagIcon lang={language} />
@@ -181,7 +201,7 @@ export default function Header({ forceSolid = false }) {
               variant="primary"
               className="shadow-md hover:shadow-lg transition-shadow"
             >
-              {t('nav.contactUs')}
+              {t("nav.contactUs")}
             </Button>
           </div>
 
@@ -191,8 +211,8 @@ export default function Header({ forceSolid = false }) {
               onClick={toggleLanguage}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full font-medium text-sm transition-all duration-300 cursor-pointer shadow-sm ${
                 isSolid
-                  ? 'bg-white hover:bg-neutral-50 border border-neutral-200 text-neutral-700'
-                  : 'bg-white/10 hover:bg-white/20 border border-white/20 text-white'
+                  ? "bg-white hover:bg-neutral-50 border border-neutral-200 text-neutral-700"
+                  : "bg-white/10 hover:bg-white/20 border border-white/20 text-white"
               }`}
             >
               <FlagIcon lang={language} />
@@ -201,8 +221,8 @@ export default function Header({ forceSolid = false }) {
             <button
               className={`p-2 rounded-lg transition-all duration-300 cursor-pointer ${
                 isSolid
-                  ? 'text-neutral-700 hover:bg-neutral-100'
-                  : 'text-white hover:bg-white/20'
+                  ? "text-neutral-700 hover:bg-neutral-100"
+                  : "text-white hover:bg-white/20"
               }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -235,13 +255,18 @@ export default function Header({ forceSolid = false }) {
         {/* Mobile Menu - Full Screen Overlay */}
         <div
           className={`fixed inset-0 z-40 bg-neutral-900/95 backdrop-blur-xl md:hidden flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
-            isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+            isMenuOpen
+              ? "opacity-100 visible"
+              : "opacity-0 invisible pointer-events-none"
           }`}
         >
           <nav className="flex flex-col items-center gap-6">
             {navigation.map((item) =>
               item.isDropdown ? (
-                <div key={item.name} className="flex flex-col items-center gap-3">
+                <div
+                  key={item.name}
+                  className="flex flex-col items-center gap-3"
+                >
                   <div className="text-sm font-semibold text-primary-400 uppercase tracking-wider">
                     {item.name}
                   </div>
@@ -263,7 +288,7 @@ export default function Header({ forceSolid = false }) {
                 >
                   {item.name}
                 </button>
-              )
+              ),
             )}
           </nav>
           <div className="flex flex-col gap-4 mt-8 w-64">
@@ -273,7 +298,7 @@ export default function Header({ forceSolid = false }) {
               className="w-full shadow-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              {t('nav.contactUs')}
+              {t("nav.contactUs")}
             </Button>
           </div>
         </div>

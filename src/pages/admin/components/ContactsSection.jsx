@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { adminAPI } from '../../../services/api';
 
 const API_BASE_URL = window.location.hostname === 'localhost'
-  ? 'https://www.phuketgevalin.com/api'
+  ? 'https://www.ktvacationmemories.com/api'
   : '/api';
 
 export default function ContactsSection() {

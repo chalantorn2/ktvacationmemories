@@ -71,13 +71,13 @@ export default function AdminDashboard({ admin, onLogout }) {
             <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
               <img
                 src="/logo.png"
-                alt="Phuket Gevalin"
+                alt="Ktvacationmemories"
                 className="w-full h-full object-contain"
               />
             </div>
             {sidebarOpen && (
               <div>
-                <h1 className="font-bold">Phuket Gevalin</h1>
+                <h1 className="font-bold">Ktvacationmemories</h1>
                 <p className="text-xs text-sky-300">Admin Panel</p>
               </div>
             )}

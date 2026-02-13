@@ -396,7 +396,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `setting_key`, `setting_value`, `setting_type`, `created_at`, `updated_at`) VALUES
-(1, 'site_name', 'Phuket Gevalin', 'text', '2026-01-19 19:27:32', NULL),
+(1, 'site_name', 'Ktvacationmemories', 'text', '2026-01-19 19:27:32', NULL),
 (2, 'site_email', 'info@phuketgevalin.com', 'text', '2026-01-19 19:27:32', NULL),
 (3, 'site_phone', '+66 XX XXX XXXX', 'text', '2026-01-19 19:27:32', NULL),
 (4, 'currency', 'THB', 'text', '2026-01-19 19:27:32', NULL),

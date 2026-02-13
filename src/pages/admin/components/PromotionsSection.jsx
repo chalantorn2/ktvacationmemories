@@ -209,7 +209,7 @@ function PromotionForm({ promotion, onClose, onSave }) {
       formDataUpload.append('folder', 'promotions');
 
       const apiBase = window.location.hostname === 'localhost'
-        ? 'https://www.phuketgevalin.com/api'
+        ? 'https://www.ktvacationmemories.com/api'
         : '/api';
 
       const response = await fetch(`${apiBase}/upload`, {

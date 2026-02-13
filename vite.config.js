@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://www.phuketgevalin.com',
+        target: 'https://www.ktvacationmemories.com',
         changeOrigin: true,
         secure: true
       }

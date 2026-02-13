@@ -1,7 +1,7 @@
     <?php
     /**
      * Database Configuration
-     * Phuket Gevalin - Travel & Tour Website
+     * Ktvacationmemories - Travel & Tour Website
      */
 
     // Error reporting (ปิดใน production)
@@ -11,13 +11,13 @@
     // Database credentials
     define('DB_HOST', 'localhost');
     define('DB_PORT', '3306');
-    define('DB_NAME', 'phuketgevalin_web');
-    define('DB_USER', 'samui_phuketgevalin_web');
-    define('DB_PASS', 'EFAex@66m%2oqycb');
+    define('DB_NAME', 'ktvacationmemories');
+    define('DB_USER', 'samui_ktvacationmemories');
+    define('DB_PASS', 'z3sVxv&2Xob!9nSu');
     define('DB_CHARSET', 'utf8mb4');
 
     // Site settings
-    define('SITE_URL', 'https://phuketgevalin.com');
+    define('SITE_URL', 'https://ktvacationmemories.com');
     define('API_URL', SITE_URL . '/api');
 
     // Timezone
@@ -186,10 +186,10 @@
     function setCorsHeaders(): void
     {
         $allowedOrigins = [
-            'https://phuketgevalin.com',
-            'https://www.phuketgevalin.com',
-            'http://phuketgevalin.com',
-            'http://www.phuketgevalin.com',
+            'https://ktvacationmemories.com',
+            'https://www.ktvacationmemories.com',
+            'http://ktvacationmemories.com',
+            'http://www.ktvacationmemories.com',
             'http://localhost:5173',
             'http://localhost:5174',
             'http://localhost:5175',
@@ -202,7 +202,7 @@
             header("Access-Control-Allow-Origin: $origin");
         } else {
             // Allow same domain
-            header("Access-Control-Allow-Origin: https://phuketgevalin.com");
+            header("Access-Control-Allow-Origin: https://ktvacationmemories.com");
         }
 
         header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
