@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Authentication API - Phuket Gevalin Admin
  */
@@ -16,11 +17,25 @@ try {
 
         if ($action === 'check') {
             if (isset($_SESSION['admin_id']) && isset($_SESSION['admin_logged_in'])) {
-                successResponse([
-                    'logged_in' => true,
-                    'admin_id' => $_SESSION['admin_id'],
-                    'username' => $_SESSION['admin_username']
-                ]);
+                // ดึง role จาก DB ตรงๆ เพื่อให้ได้ค่าล่าสุดเสมอ
+                $currentAdmin = $db->fetchOne(
+                    "SELECT role FROM admins WHERE id = ? AND status = 'active'",
+                    [$_SESSION['admin_id']]
+                );
+
+                if (!$currentAdmin) {
+                    // Admin ถูกลบหรือ inactive ไปแล้ว
+                    session_destroy();
+                    successResponse(['logged_in' => false]);
+                } else {
+                    $_SESSION['admin_role'] = $currentAdmin['role'];
+                    successResponse([
+                        'logged_in' => true,
+                        'admin_id' => $_SESSION['admin_id'],
+                        'username' => $_SESSION['admin_username'],
+                        'role' => $currentAdmin['role']
+                    ]);
+                }
             } else {
                 successResponse(['logged_in' => false]);
             }

@@ -17,7 +17,8 @@ export default function AdminApp() {
       if (response.success && response.data.logged_in) {
         setAdmin({
           id: response.data.admin_id,
-          username: response.data.username
+          username: response.data.username,
+          role: response.data.role
         });
       }
     } catch (error) {

@@ -338,6 +338,27 @@ export const onedayTripsAPI = {
 };
 
 // ============================================
+// Users API (Admin User Management)
+// ============================================
+export const usersAPI = {
+  getAll: () => fetchAPI("users"),
+  create: (data) =>
+    fetchAPI("users", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
+  update: (id, data) =>
+    fetchAPI(`users?id=${id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+    }),
+  delete: (id) =>
+    fetchAPI(`users?id=${id}`, {
+      method: "DELETE",
+    }),
+};
+
+// ============================================
 // Auth API
 // ============================================
 export const authAPI = {
@@ -384,6 +405,7 @@ export default {
   contact: contactAPI,
   promotions: promotionsAPI,
   onedayTrips: onedayTripsAPI,
+  users: usersAPI,
   auth: authAPI,
   admin: adminAPI,
   testConnection,

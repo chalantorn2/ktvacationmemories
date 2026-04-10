@@ -93,6 +93,10 @@ switch ($path) {
         require_once __DIR__ . '/upload.php';
         break;
 
+    case 'users':
+        require_once __DIR__ . '/users.php';
+        break;
+
     default:
         errorResponse('Endpoint not found', 404);
 }

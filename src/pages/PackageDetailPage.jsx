@@ -21,6 +21,7 @@ import {
   Loader2,
 } from "lucide-react";
 import Button from "../components/ui/Button";
+import BookingModal from "../components/BookingModal";
 import { useLanguage } from "../context/LanguageContext";
 import { packageToursAPI } from "../services/api";
 
@@ -33,6 +34,7 @@ export default function PackageDetailPage() {
   const [packageData, setPackageData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showBooking, setShowBooking] = useState(false);
 
   // Fetch package data from API
   useEffect(() => {
@@ -578,7 +580,10 @@ export default function PackageDetailPage() {
                 </span>
               </div>
 
-              <Button className="w-full !py-3.5 !text-base shadow-lg shadow-primary-500/30 mb-3">
+              <Button
+                className="w-full !py-3.5 !text-base shadow-lg shadow-primary-500/30 mb-3"
+                onClick={() => setShowBooking(true)}
+              >
                 {language === "TH" ? "จองแพ็กเกจ" : "Book Package"}
               </Button>
               <button className="w-full py-3 text-sm font-bold text-gray-500 hover:text-primary-600 transition-colors bg-transparent border border-gray-200 rounded-xl hover:border-primary-200 cursor-pointer">
@@ -588,6 +593,19 @@ export default function PackageDetailPage() {
           </div>
         </div>
       </div>
+
+      <BookingModal
+        isOpen={showBooking}
+        onClose={() => setShowBooking(false)}
+        serviceType="package_tour"
+        serviceId={packageData.id}
+        serviceName={title}
+        serviceImage={images[0]}
+        initialDate={startDate}
+        initialAdults={guests}
+        pricePerUnit={Number(packageData.price)}
+        priceLabel={language === "TH" ? "ต่อท่าน" : "per person"}
+      />
     </div>
   );
 }
